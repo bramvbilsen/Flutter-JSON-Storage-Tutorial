@@ -1,4 +1,4 @@
-# Flutter Tabbar tutorial
+# Flutter JSON Storage Tutorial
 The video tutorial for this repo can be found here: *Yet to be released*
 
 ## Getting Started
