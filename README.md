@@ -1,5 +1,5 @@
 # Flutter JSON Storage Tutorial
-The video tutorial for this repo can be found here: *Yet to be released*
+The video tutorial for this repo can be found here: https://www.youtube.com/watch?v=jVVCHzkI8as
 
 ## Getting Started
 
