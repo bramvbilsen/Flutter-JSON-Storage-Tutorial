@@ -21,7 +21,7 @@ class HomeState extends State<Home> {
 
   File jsonFile;
   Directory dir;
-  String fileName = "myJSONFile.json";
+  String fileName = "myFile.json";
   bool fileExists = false;
   Map<String, String> fileContent;
 
@@ -32,7 +32,7 @@ class HomeState extends State<Home> {
       dir = directory;
       jsonFile = new File(dir.path + "/" + fileName);
       fileExists = jsonFile.existsSync();
-      if (fileExists) this.setState(() => fileContent = JSON.decode(jsonFile.readAsStringSync()));
+      if (fileExists) this.setState(() => fileContent = json.decode(jsonFile.readAsStringSync()));
     });
   }
 
@@ -48,7 +48,7 @@ class HomeState extends State<Home> {
     File file = new File(dir.path + "/" + fileName);
     file.createSync();
     fileExists = true;
-    file.writeAsStringSync(JSON.encode(content));
+    file.writeAsStringSync(json.encode(content));
   }
 
   void writeToFile(String key, String value) {
@@ -58,12 +58,12 @@ class HomeState extends State<Home> {
       print("File exists");
       Map<String, String> jsonFileContent = json.decode(jsonFile.readAsStringSync());
       jsonFileContent.addAll(content);
-      jsonFile.writeAsStringSync(JSON.encode(jsonFileContent));
+      jsonFile.writeAsStringSync(json.encode(jsonFileContent));
     } else {
       print("File does not exist!");
       createFile(content, dir, fileName);
     }
-    this.setState(() => fileContent = JSON.decode(jsonFile.readAsStringSync()));
+    this.setState(() => fileContent = json.decode(jsonFile.readAsStringSync()));
     print(fileContent);
   }
 
