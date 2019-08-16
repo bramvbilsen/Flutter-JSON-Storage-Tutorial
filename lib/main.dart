@@ -23,7 +23,7 @@ class HomeState extends State<Home> {
   Directory dir;
   String fileName = "myFile.json";
   bool fileExists = false;
-  Map<String, String> fileContent;
+  Map<String, dynamic> fileContent;
 
   @override
   void initState() {
@@ -43,7 +43,7 @@ class HomeState extends State<Home> {
     super.dispose();
   }
 
-  void createFile(Map<String, String> content, Directory dir, String fileName) {
+  void createFile(Map<String, dynamic> content, Directory dir, String fileName) {
     print("Creating file!");
     File file = new File(dir.path + "/" + fileName);
     file.createSync();
@@ -51,12 +51,12 @@ class HomeState extends State<Home> {
     file.writeAsStringSync(json.encode(content));
   }
 
-  void writeToFile(String key, String value) {
+  void writeToFile(String key, dynamic value) {
     print("Writing to file!");
-    Map<String, String> content = {key: value};
+    Map<String, dynamic> content = {key: value};
     if (fileExists) {
       print("File exists");
-      Map<String, String> jsonFileContent = json.decode(jsonFile.readAsStringSync());
+      Map<String, dynamic> jsonFileContent = json.decode(jsonFile.readAsStringSync());
       jsonFileContent.addAll(content);
       jsonFile.writeAsStringSync(json.encode(jsonFileContent));
     } else {
